@@ -44,4 +44,44 @@ public class Parser {
         currentInstruction = instructions.get(currentIndex);
         currentIndex++;
     }
+    public CommandType commandType() {
+        if (currentInstruction.startsWith("@")) return CommandType.A_COMMAND;
+        if (currentInstruction.startsWith("(") && currentInstruction.endsWith(")")) return CommandType.L_COMMAND;
+        return CommandType.C_COMMAND;
+    }
+
+    public String symbol() {
+        if (commandType() == CommandType.A_COMMAND) {
+            return currentInstruction.substring(1); // Remove o '@'
+        } else if (commandType() == CommandType.L_COMMAND) {
+            return currentInstruction.substring(1, currentInstruction.length() - 1); // Remove os '()'
+        }
+        return null;
+    }
+
+    public String dest() {
+        if (commandType() == CommandType.C_COMMAND && currentInstruction.contains("=")) {
+            return currentInstruction.split("=")[0];
+        }
+        return "";
+    }
+
+    public String comp() {
+        if (commandType() != CommandType.C_COMMAND) return "";
+        String remaining = currentInstruction;
+        if (remaining.contains("=")) {
+            remaining = remaining.split("=")[1];
+        }
+        if (remaining.contains(";")) {
+            remaining = remaining.split(";")[0];
+        }
+        return remaining;
+    }
+
+    public String jump() {
+        if (commandType() == CommandType.C_COMMAND && currentInstruction.contains(";")) {
+            return currentInstruction.split(";")[1];
+        }
+        return "";
+    }
 }
