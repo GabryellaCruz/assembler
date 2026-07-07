@@ -148,3 +148,8 @@ No Animation
 5. Clique em **Run (Play)**.
 
 6. Clique sobre a tela do emulador e utilize as teclas **A** e **D** do teclado para controlar a raquete durante a execução do jogo.
+
+# 🎥 Video de Apresentação
+```
+LInk do video
+```
