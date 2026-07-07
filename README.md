@@ -28,6 +28,7 @@ O projeto foi modularizado separando a análise sintática, a conversão de mnem
 ```plaintext
 assembler/
 ├── bin/                    # Arquivos compilados (.class)
+├── nand2tetris/            # arquivo nand2tetris oficial base
 ├── src/main/java/          # Código-fonte do projeto
 │   └── org/ufma/
 │       ├── parser/         # Parser e classificação dos comandos
@@ -151,5 +152,5 @@ No Animation
 
 # 🎥 Video de Apresentação
 ```
-LInk do video
+LInk do video: 
 ```
